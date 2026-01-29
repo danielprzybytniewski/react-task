@@ -6,8 +6,9 @@ import {
 import Layout from "@/components/Layout";
 import UsersListPage from "@/pages/UsersListPage";
 import AddUserPage from "@/pages/AddUserPage";
-import UserDetailPage from "@/pages/UserDetailPage";
+import UserDetailsPage from "@/pages/UserDetailsPage";
 import { UsersProvider } from "@/context/UsersContext";
+import { Toaster } from "@/components/ui/sonner";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "users/:id",
-        element: <UserDetailPage />,
+        element: <UserDetailsPage />,
       },
     ],
   },
@@ -38,6 +39,7 @@ export default function App() {
   return (
     <UsersProvider>
       <RouterProvider router={router} />
+      <Toaster />
     </UsersProvider>
   );
 }

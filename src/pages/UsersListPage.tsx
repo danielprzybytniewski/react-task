@@ -93,7 +93,11 @@ export default function UsersListPage() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => user.id && deleteUser(user.id)}
+                    onClick={() => {
+                      if (user.id) {
+                        deleteUser(user.id);
+                      }
+                    }}
                     className="text-red-600 hover:text-red-700 hover:bg-red-100 hover:cursor-pointer transition-colors"
                   >
                     <Trash2 className="h-4 w-4" />
