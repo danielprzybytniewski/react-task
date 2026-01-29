@@ -33,8 +33,8 @@ export function UsersProvider({ children }: { children: ReactNode }) {
   const addUser = async (user: User) => {
     try {
       const createdUser = await createUser(user);
-
       setUsers((prev) => [{ ...createdUser, id: Date.now() }, ...prev]);
+      toast.success(`User ${createdUser?.name} has been added`);
     } catch (error) {
       console.error("Error while adding user:", error);
     }
