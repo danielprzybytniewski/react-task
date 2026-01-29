@@ -14,7 +14,7 @@ export const UserSchema = z.object({
       .regex(/^\d{2}-\d{3}$|^\d{5}(-\d{4})?$/, "Invalid postal code"),
   }),
   phone: z.string().min(5, "Phone number is required"),
-  website: z.string(),
+  website: z.string().min(5, "Website is required"),
   company: z
     .object({
       name: z.string().optional(),
