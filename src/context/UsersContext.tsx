@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect, type ReactNode } from "react";
 import type { User } from "@/types/user-schema.types";
 import { fetchUsers, createUser } from "@/api/users";
-
+import { toast } from "sonner";
 interface UsersContextType {
   users: User[];
   loading: boolean;
@@ -41,7 +41,9 @@ export function UsersProvider({ children }: { children: ReactNode }) {
   };
 
   const deleteUser = (id: number) => {
+    const deletedUser = users.find((user) => user.id === id);
     setUsers((prev) => prev.filter((user) => user.id !== id));
+    toast.error(`User ${deletedUser?.name} has been deleted`);
   };
 
   return (
